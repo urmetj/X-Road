@@ -28,7 +28,7 @@ RUN apt-get -qq update \
 
 # Xroad CS from external packages
 FROM base AS centralserver-external
-ARG DIST=jammy-snapshot
+ARG DIST=resolute-snapshot
 ARG REPO=https://artifactory.niis.org/xroad-snapshot-deb
 ARG REPO_KEY=https://artifactory.niis.org/api/gpg/key/public
 ARG COMPONENT=main

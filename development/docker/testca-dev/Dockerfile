@@ -9,15 +9,15 @@ RUN --mount=type=bind,from=mirror-scripts,source=configure-mirror-apt.sh,target=
     /bin/bash /tmp/configure-mirror-apt.sh "$XROAD_MIRROR_URL" "$XROAD_MIRROR_USER"
 
 # ACME
-ARG A2C_VER=0.35
-ADD https://github.com/grindsa/acme2certifier/releases/download/${A2C_VER}/acme2certifier_${A2C_VER}-1_all.deb /tmp/
+ARG A2C_VER=0.42.1
+ADD https://github.com/grindsa/acme2certifier/releases/download/${A2C_VER}/acme2certifier_${A2C_VER}-2_all.deb /tmp/
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
     ca-certificates supervisor nginx python3 python3-pip \
     uwsgi uwsgi-plugin-python3 curl nano \
-  && apt -y install --no-install-recommends /tmp/acme2certifier_${A2C_VER}-1_all.deb \
+  && apt -y install --no-install-recommends /tmp/acme2certifier_${A2C_VER}-2_all.deb \
   && apt-get clean
 
 #Setup TEST-CA with TSA and OCSP
