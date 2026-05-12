@@ -292,7 +292,7 @@ jobs:
             --environment ci \
             --registry ${{ env.IMAGE_REGISTRY }} \
             --version ${{ env.SERVICE_IMAGE_TAG }} \
-            --packages-path ${{ github.workspace }}/deployment/native-packages/build/ubuntu24.06 \
+            --packages-path ${{ github.workspace }}/deployment/native-packages/build/ubuntu26.04 \
             --platforms linux/amd64
 
       - name: Build development images
