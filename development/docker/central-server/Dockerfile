@@ -45,10 +45,10 @@ RUN echo "deb $REPO $DIST $COMPONENT" >/etc/apt/sources.list.d/xroad.list \
   # Do not exclude man pages & other documentation
   && rm -f /etc/dpkg/dpkg.cfg.d/excludes \
   # Install
-  && pg_ctlcluster 16 main start \
+  && pg_ctlcluster 18 main start \
   && apt-get -qq update \
   && apt-get -qq install xroad-centralserver \
-  && pg_ctlcluster 16 main stop \
+  && pg_ctlcluster 18 main stop \
   # Clean up
   && rm -rf /tmp/repo \
   && apt-get remove -qq dpkg-dev && apt-get -qq clean && apt-get -qq autoremove \
@@ -69,10 +69,10 @@ RUN --mount=type=bind,from=packages,target=/tmp/packages \
   # Do not exclude man pages & other documentation
   && rm -f /etc/dpkg/dpkg.cfg.d/excludes \
   # Install
-  && pg_ctlcluster 16 main start \
+  && pg_ctlcluster 18 main start \
   && apt-get -qq update \
   && apt-get -qq install xroad-centralserver \
-  && pg_ctlcluster 16 main stop \
+  && pg_ctlcluster 18 main stop \
   # Clean up
   && rm -rf /tmp/repo \
   && apt-get remove -qq dpkg-dev && apt-get -qq clean && apt-get -qq autoremove \

@@ -181,7 +181,7 @@ if [[ "$RECONFIG_REQUIRED" == "true" ]]; then
   fi
   if [[ "$LOCAL_DB" == "true" ]]; then
     init_db_dir
-    pg_ctlcluster 16 main start
+    pg_ctlcluster 18 main start
   else
     if [[ -n "$XROAD_DB_PWD" ]]; then
       if [[ -w "$ROOT_PROPERTIES" ]]; then
@@ -208,7 +208,7 @@ if [[ "$RECONFIG_REQUIRED" == "true" ]]; then
     touch /.xroad-reconfigured
   fi
   if [[ "$LOCAL_DB" == "true" ]]; then
-    pg_ctlcluster 16 main stop
+    pg_ctlcluster 18 main stop
     sleep 1
     crudini --set --existing=section /etc/supervisor/conf.d/xroad.conf program:postgres autostart true &>/dev/null || :
   else
