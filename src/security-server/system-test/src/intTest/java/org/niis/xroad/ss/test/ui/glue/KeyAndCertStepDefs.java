@@ -328,7 +328,7 @@ public class KeyAndCertStepDefs extends BaseUiStepDefs {
             if (ariSupported) {
                 // acme2certifier ARI renewal suggestion date is calculated as follows:
                 // now() + 90% of days between issued date (here now()) and expiration date
-                // (renewaltreshold_pctg and cert_validity_days are configurable in acme_serv.cfg)
+                // (renewalthreshold_pctg and cert_validity_days are configurable in acme_srv.cfg)
                 expectedAutomaticRenewalStatus = "Next planned renewal on " + LocalDate.now().plusDays(27);
             } else {
                 // Fixed renewal suggestion date is calculated as follows:
